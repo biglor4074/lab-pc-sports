@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 – 信息聚合与站点指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e9edf2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b1a2a;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0.5rem auto 0;
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        /* 分区卡片通用 */
+        .section-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .section-card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.4rem;
+            color: #0f172a;
+        }
+
+        .section-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1e293b;
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-card p {
+            color: #334155;
+            margin-bottom: 1rem;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 用途卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .use-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: background 0.15s;
+        }
+
+        .use-item:hover {
+            background: #ffffff;
+        }
+
+        .use-item .emoji-marker {
+            font-size: 1.5rem;
+            margin-right: 0.6rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .use-item p {
+            margin-bottom: 0;
+            display: inline;
+        }
+
+        /* 适合人群 */
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .audience-tag {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 40px;
+            padding: 0.5rem 1.4rem;
+            font-size: 0.95rem;
+            color: #1e293b;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .audience-tag::before {
+            content: "›";
+            font-weight: 600;
+            color: #3b82f6;
+        }
+
+        /* 自然链接段落 */
+        .natural-link-sentence {
+            background: #f9fbfd;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e2e8f0;
+            margin: 1.2rem 0 0.2rem;
+            font-size: 1.05rem;
+        }
+
+        .natural-link-sentence a {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #94a3b8;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .natural-link-sentence a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #2563eb;
+        }
+
+        /* FAQ摘要 */
+        .faq-mini {
+            margin-top: 1.2rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+            color: #475569;
+        }
+
+        /* 脚注 */
+        .footnote {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 2rem; }
+            .section-card { padding: 1.5rem 1.2rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .natural-link-sentence { padding: 1.2rem 1.2rem; }
+            .audience-list { gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>关于<span>雷速</span></h1>
+        <p>一个从日常使用出发的信息聚合站点，力求提供清晰、可信的指引与内容入口。</p>
+    </div>
+
+    <!-- 站点介绍与可信说明 -->
+    <div class="section-card">
+        <h2>站点介绍</h2>
+        <p><strong>雷速</strong> 并非一个追求流量的门户，而是一个围绕实用信息进行梳理和呈现的网站。它的核心思路是：把分散在网络上的有效观点、工具说明、场景参考整理成更易读的形态，减少反复跳转和筛选的时间。</p>
+        <p>在信息真假难辨的环境里，<strong>雷速</strong> 更注重内容出处和表述克制——不夸大、不诱导，每一段描述都经过基础的事实核对，并提供可以进一步查证的上下文。这也是我们持续维护这个站点的初衷：让阅读者带着问题来，带走清晰的认知，而非模糊的承诺。</p>
+        <div class="natural-link-sentence">
+            <p>如果你想进一步了解站点的具体内容方向，可以直接访问 <a href="https://main-zhcn-leisu.com">雷速</a> 的主页，那里有更完整的板块分类和最新更新。</p>
+        </div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="section-card">
+        <h2>常见用途</h2>
+        <div class="card-grid">
+            <div class="use-item">
+                <span class="emoji-marker">📋</span>
+                <p><strong>快速参考</strong> — 当需要某个概念或工具的基础说明时，雷速提供了条理清晰的摘要，无需反复切换页面。</p>
+            </div>
+            <div class="use-item">
+                <span class="emoji-marker">🔎</span>
+                <p><strong>话题延伸</strong> — 每个内容单元都会附带关联信息与延伸阅读线索，帮助你有方向地深入。</p>
+            </div>
+            <div class="use-item">
+                <span class="emoji-marker">🧩</span>
+                <p><strong>场景匹配</strong> — 无论是学习、工作还是兴趣探索，站点的分类逻辑以真实场景为锚点，不是空泛的标签。</p>
+            </div>
+            <div class="use-item">
+                <span class="emoji-marker">✅</span>
+                <p><strong>可信核对</strong> — 内容编写过程中会进行基础事实交叉，避免未经证实的流行说法直接影响判断。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 自然链接 -->
+    <div class="section-card">
+        <h2>适合人群</h2>
+        <p>从日常信息消费者到需要做快速判断的轻度研究者，都可能从中找到有价值的部分。</p>
+        <div class="audience-list">
+            <span class="audience-tag">内容写作者</span>
+            <span class="audience-tag">普通电脑使用者</span>
+            <span class="audience-tag">信息整理爱好者</span>
+            <span class="audience-tag">想减少搜索时间的人</span>
+        </div>
+        <p style="margin-top: 1.2rem;">当然，网站并不试图覆盖所有人群，而是更倾向于服务那些希望获得“经过筛选但不带滤镜”的信息的人。如果你恰好属于这一类，不妨花几分钟在 <a href="https://main-zhcn-leisu.com">雷速</a> 的页面里随意翻翻，也许会发现一些你之前忽略的线索。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section-card">
+        <h2>关于雷速的常见疑问</h2>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <strong>雷速收录的内容来自哪里？</strong>
+                <p>主要来源于公开可查的资料、产品官方说明以及稳定的行业知识库，不做主观二次创作或夸张包装。每一条内容都保留原始可追溯性。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息多久更新一次？</strong>
+                <p>没有固定的发布周期，但会根据相关领域的实际变化及时调整关键描述。站点会标注最后修订日期，以便读者自行判断时效。</p>
+            </div>
+            <div class="faq-item">
+                <strong>我能直接引用雷速的内容吗？</strong>
+                <p>站内内容多以事实性信息为主，引用时建议同时核对原始出处。我们欢迎合理引用，但更鼓励读者建立自己的信息验证习惯。</p>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; color: #475569;">如果你还有其他疑问，可以直接通过 <a href="https://main-zhcn-leisu.com">雷速</a> 页面内的联系方式与我们取得沟通。</p>
+    </div>
+
+    <!-- 简要脚注 -->
+    <div class="footnote">
+        <p>雷速 · 信息聚合与可信参考 · 基于事实，不渲染不夸张。</p>
+    </div>
+
+</div>
+</body>
+</html>
