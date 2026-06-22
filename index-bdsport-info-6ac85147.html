@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半岛体育 · 站点介绍与使用说明</title>
+    <style>
+        /* reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f7fc;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 0 1rem;
+        }
+
+        /* 深色头图区域 — 拉伸全宽 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2c 0%, #102a3e 100%);
+            color: #e9edf2;
+            margin: 0 -1rem 2rem -1rem;
+            padding: 4rem 2rem 3.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: #f4f7fc;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #f0f6fe;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd7e6;
+            font-weight: 300;
+        }
+
+        /* 主内容区卡片式 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto 3rem auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 20, 40, 0.06);
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #0f2640;
+            border-left: 5px solid #d97706;
+            padding-left: 1rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0.25rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* 亮点网格 */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1.8rem 0 1.5rem;
+        }
+
+        .highlight-card {
+            background: #f8faff;
+            border-radius: 16px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #e6edf6;
+            transition: box-shadow 0.2s;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #1e3a5f;
+            letter-spacing: 0.3px;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: #34495e;
+            margin-bottom: 0;
+        }
+
+        /* 使用建议 — 列表样式 */
+        .usage-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .usage-list li {
+            background: #f2f6fd;
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            border-left: 4px solid #d97706;
+            font-size: 0.98rem;
+        }
+
+        .usage-list li strong {
+            color: #1e3a5f;
+        }
+
+        /* 提示块 */
+        .note-box {
+            background: #f1f6fe;
+            border-radius: 14px;
+            padding: 1.3rem 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #dce7f3;
+        }
+
+        .note-box p {
+            margin-bottom: 0.3rem;
+        }
+
+        .note-box .small-meta {
+            font-size: 0.9rem;
+            color: #4b5f73;
+            margin-top: 0.4rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e1eaf2;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .question {
+            font-weight: 600;
+            color: #0f2640;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item .answer {
+            color: #33455b;
+            font-size: 0.95rem;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #d97706;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s, color 0.15s;
+        }
+
+        a:hover {
+            color: #b45f03;
+            border-bottom-color: #b45f03;
+        }
+
+        /* 底部 */
+        .footnote {
+            max-width: 960px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5b6f83;
+            border-top: 1px solid #d6e0ea;
+            padding-top: 1.5rem;
+        }
+
+        .footnote a {
+            color: #5b6f83;
+            font-weight: 400;
+            border-bottom-color: #b5c5d6;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 1.5rem 1.2rem;
+            }
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            .usage-list li {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.8rem 1rem 2.6rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>半岛体育 · 站点说明</h1>
+        <p>一份认真整理的介绍与使用参考，帮助你快速了解服务的核心特点与边界。</p>
+    </section>
+
+    <!-- 正文卡片区 -->
+    <div class="container">
+
+        <!-- 站点摘要 -->
+        <h2>站点摘要</h2>
+        <p>
+            <a href="https://index-bdsport.com">半岛体育</a>是一个专注于体育内容聚合与相关资讯的平台。
+            站点围绕赛事动态、活动介绍以及基础信息展示进行组织，力求信息清晰、结构直接。
+            目前页面内容以中文为主，适合对体育信息有常规需求的浏览者。
+        </p>
+
+        <!-- 亮点卡片 -->
+        <h2>几个突出特点</h2>
+        <div class="highlights">
+            <div class="highlight-card">
+                <h3>信息集中</h3>
+                <p>将多项体育相关模块整合在单一入口，避免多次跳转，浏览更连续。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>视觉统一</h3>
+                <p>整体采用深色头部与浅色正文的对比布局，阅读时段落分明。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>低干扰展示</h3>
+                <p>界面没有过多弹窗或强提醒，主要信息均以静态卡片与列表呈现。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>基础响应式</h3>
+                <p>页面结构会根据设备宽度自动调整，手机与电脑均可正常浏览。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <h2>使用建议</h2>
+        <ul class="usage-list">
+            <li><strong>先读摘要：</strong>每个板块都配有简短的标题或说明，建议先浏览整体标题，再深入感兴趣的部分。</li>
+            <li><strong>善用链接导航：</strong>页面内的主链接可直接跳转至 <a href="https://index-bdsport.com">半岛体育</a> 对应内容，无需额外搜索。</li>
+            <li><strong>注意信息更新：</strong>体育类资讯时效性较强，建议定期查看，以免错过重要的时间节点或调整。</li>
+            <li><strong>环境与网络：</strong>部分内容可能依赖稳定的网络环境，如果遇到加载延迟可稍后重试或更换网络。</li>
+        </ul>
+
+        <!-- 场景提示 -->
+        <h2>适用场景参考</h2>
+        <p>
+            日常想快速了解体育赛事动态、查看活动基本说明、或者需要一个清晰的信息入口时，都可以直接通过
+            <a href="https://index-bdsport.com">半岛体育</a>开始。
+            平台主要面向中文使用者，不涉及复杂的注册流程或多余功能，对初次接触体育类站点的用户也比较友好。
+        </p>
+
+        <!-- 可信但克制的说明 -->
+        <div class="note-box">
+            <p><strong>关于可信与信息边界</strong></p>
+            <p>本页面仅为介绍与说明用途。站点所展示的内容均基于公开整理，不包含任何未经证实的承诺或保证。
+            使用前请结合自身判断，理性对待任何体育类信息。如有疑问或需要更详细的说明，建议通过站点内提供的方式进一步了解。</p>
+            <p class="small-meta">—— 本介绍页与原始站点独立，仅做辅助说明。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <h2>常见问题摘要</h2>
+        <div class="faq-item">
+            <span class="question">Q: 半岛体育主要提供哪类内容？</span>
+            <span class="answer">A: 以体育赛事动态、活动简介、资讯聚合为主，不包含直播或实时数据服务。</span>
+        </div>
+        <div class="faq-item">
+            <span class="question">Q: 是否需要注册或登录才能浏览？</span>
+            <span class="answer">A: 目前多数内容可以直接访问，部分功能或详细模块可能有额外提示，请以实际页面为准。</span>
+        </div>
+        <div class="faq-item">
+            <span class="question">Q: 移动端浏览体验如何？</span>
+            <span class="answer">A: 页面已做响应式布局，在手机和平板设备上可正常阅读与操作，排版会相应简化。</span>
+        </div>
+        <div class="faq-item">
+            <span class="question">Q: 发现链接或信息异常怎么办？</span>
+            <span class="answer">A: 建议先检查网络环境，或稍后再试。如持续异常，可通过站点内说明渠道反馈。</span>
+        </div>
+
+        <!-- 嵌入链接的句子（自然嵌入，不使用入口/进入等词） -->
+        <p style="margin-top: 1.8rem; font-size: 0.95rem; color: #3f556b;">
+            <span style="background: #e9f0fa; padding: 0.2rem 0.6rem; border-radius: 6px;">💡 若希望直接浏览主站，可点击上文任意位置的 <a href="https://index-bdsport.com">半岛体育</a> 链接。</span>
+        </p>
+
+    </div>
+
+    <!-- 底部 -->
+    <div class="footnote">
+        <p>介绍页 · 内容仅供参考 · 与 <a href="https://index-bdsport.com">半岛体育</a> 关联但不代表其官方观点</p>
+    </div>
+
+</body>
+</html>
